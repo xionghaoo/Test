@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/appleFragment">
+    <fragment
+        android:id="@+id/appleFragment"
+        android:name="xh.zero.test.AppleFragment"
+        android:label="fragment_apple"
+        tools:layout="@layout/fragment_apple">
+        <action
+            android:id="@+id/action_appleFragment_to_bananaFragment"
+            app:destination="@id/bananaFragment" />
+        <argument
+            android:name="userID"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/bananaFragment"
+        android:name="xh.zero.test.BananaFragment"
+        android:label="fragment_banana"
+        tools:layout="@layout/fragment_banana" />
+</navigation>

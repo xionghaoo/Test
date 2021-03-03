@@ -6,9 +6,9 @@
     tools:context=".BananaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello Banana" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

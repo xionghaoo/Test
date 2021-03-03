@@ -32,6 +32,10 @@ class AppleFragment : Fragment() {
         view.findViewById<View>(R.id.btn_open_gl).setOnClickListener {
             startActivity(Intent(activity, OpenGLES20Activity::class.java))
         }
+
+        view.findViewById<View>(R.id.btn_launcher_test).setOnClickListener {
+            startActivity(Intent(activity, LauncherTestActivity::class.java))
+        }
     }
 
     companion object {

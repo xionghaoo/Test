@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:nextFocusDown="@id/btn_open_gl"
         android:text="启动第二页面"/>
 
     <Button
@@ -19,7 +20,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:nextFocusUp="@id/btn_start"
         android:text="OpenGL测试"/>
 
+    <Button
+        android:id="@+id/btn_launcher_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:nextFocusUp="@id/btn_start"
+        android:text="Launcher测试"/>
 
 </LinearLayout>

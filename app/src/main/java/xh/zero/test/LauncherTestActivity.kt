@@ -14,15 +14,25 @@ import androidx.recyclerview.widget.ItemTouchHelper.*
 import androidx.recyclerview.widget.RecyclerView
 import xh.zero.test.launcher.App
 import xh.zero.test.launcher.AppManager
+import xh.zero.test.launcher.ItemOptionView
 
 class LauncherTestActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "LauncherTestActivity"
+
+        private var instance: LauncherTestActivity? = null
+
+        fun getLauncher() = instance
+
+        fun setLauncher(launcher: LauncherTestActivity) {
+            instance = launcher
+        }
     }
 
     private lateinit var rcAppList: RecyclerView
     private lateinit var adapter: AppAdapter
+    private var itemOptionView: ItemOptionView? = null
 
     private val itemTouchHelper by lazy {
         // 1. Note that I am specifying all 4 directions.
@@ -64,6 +74,8 @@ class LauncherTestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launcher_test)
 
+        setLauncher(this)
+
         AppManager.getInstance(this).init()
         AppManager.getInstance(this).addUpdateListener { apps ->
             apps.forEach { app ->
@@ -73,6 +85,8 @@ class LauncherTestActivity : AppCompatActivity() {
             adapter.updateItems(apps)
             false
         }
+
+        itemOptionView = findViewById(R.id.item_option_view)
 
         rcAppList = findViewById<RecyclerView>(R.id.rc_app_list)
 
@@ -106,6 +120,7 @@ class LauncherTestActivity : AppCompatActivity() {
 
             holder.itemView.setOnLongClickListener {
                 tvMark.visibility = View.VISIBLE
+                getLauncher()?.itemOptionView?.showItemPopup()
                 return@setOnLongClickListener false
             }
 
